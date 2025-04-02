@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { lazy, useState, Suspense } from 'react'
 import './App.css'
 import Welcome from './Welcome'
 import Greeting from './Greeting'
@@ -13,6 +13,8 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 import ProductList from './ProductList'
 import ProductDetails from './ProductDetails'
 import { ProductProvider } from './ProductContext'
+
+const ProductList = lazy(() => import("./ProductList"))
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -38,7 +40,7 @@ function App() {
 
   return(
     <>
-    <ProductProvider>
+    {/* <ProductProvider>
     <Router>
       <nav>
         <Link to="/">Home</Link>
@@ -49,7 +51,10 @@ function App() {
       </Routes>
     </Router>
     </ProductProvider>
-    <></>
+    <></> */}
+    <Suspense fallback={<p>Loading...</p>}>
+    <ProductList />
+    </Suspense>
     </>
   )
 }

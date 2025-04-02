@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+.productCard{
+    border: 1px solid #ddd;
+    padding: 2px;
+    border-radius: 8px;
+    /* background-color: #d9d9a8c1; */
+    margin: 16px;
+}
+
+.productList{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
